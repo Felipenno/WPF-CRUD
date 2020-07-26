@@ -1,0 +1,32 @@
+﻿<Window x:Class="UI.Cadastro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Cadastro" Height="550" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="20" FontWeight="Bold" FontSize="22" Text="CADASTRAR USUÁRIO" VerticalAlignment="Top"/>
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,99,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="234"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="30,139,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,170,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="234"/>
+        <Label Content="Senha" HorizontalAlignment="Left" Margin="30,207,0,0" VerticalAlignment="Top"/>
+        <PasswordBox HorizontalAlignment="Left" Height="23" Margin="30,238,0,0"  VerticalAlignment="Top" Width="234"/>
+        <Label Content="Repetir Senha" HorizontalAlignment="Left" Margin="30,276,0,0" VerticalAlignment="Top"/>
+        <PasswordBox HorizontalAlignment="Left" Height="23" Margin="30,302,0,0"  VerticalAlignment="Top" Width="234"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="30,363,0,0" VerticalAlignment="Top" Width="234" Height="30"/>
+        <Button Content="Voltar para o Inicio" HorizontalAlignment="Left" Margin="30,442,0,0" VerticalAlignment="Top" Width="234" Height="30"/>
+
+    </Grid>
+</Window>

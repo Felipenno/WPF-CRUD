@@ -1,0 +1,66 @@
+﻿<Window x:Class="UI.Principal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Principal" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="504*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  Margin="5" Grid.RowSpan="1" TextWrapping="NoWrap" Text="NOME USUARIO CONECTADO"/>
+        <TextBlock HorizontalAlignment="Center"  Grid.Row="1" TextWrapping="NoWrap" FontWeight="Bold" FontSize="22" Text="NOME PROGRAMA" />
+        <TabControl  TabStripPlacement="Left" Grid.Row="2" >
+            <TabItem Header="Produto" >
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="229*"/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Novo Produto" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="120"/>
+                    <DataGrid Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Código" Width="*"/>
+                            <DataGridTextColumn Header="Descrição" Width="*"/>
+                            <DataGridTextColumn Header="Unidade de Medida " Width="*"/>
+                            <DataGridTextColumn Header="Grupo" Width="*"/>
+                            <DataGridTextColumn Header="Preço de Custo" Width="*"/>
+                            <DataGridTextColumn Header="Preço de Venda" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Venda">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="229*"/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Nova Venda" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="120"/>
+                    <DataGrid Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Código" Width="*"/>
+                            <DataGridTextColumn Header="Cliente" Width="*"/>
+                            <DataGridTextColumn Header="CPF" Width="*"/>
+                            <DataGridTextColumn Header="Total" Width="*"/>
+                            <DataGridTextColumn Header="Data e Hora" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
