@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    class VendaProduto
+    public class VendaProduto
     {
         public int Id { get; set; }
         public decimal PrecoVenda { get; set; }

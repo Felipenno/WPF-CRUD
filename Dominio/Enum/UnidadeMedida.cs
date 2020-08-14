@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Dominio.Enum
 {
-    enum UnidadeMedida
+    public enum UnidadeMedida
     {
         Kilo,
         Litro,
