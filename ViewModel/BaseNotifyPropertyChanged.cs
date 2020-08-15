@@ -11,15 +11,7 @@ namespace Dominio
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void SetField<T>(ref T campo, T value, [CallerMemberName] string nomePropriedade = null)
-        {
-            if (!EqualityComparer<T>.Default.Equals(campo, value))
-            {
-                campo = value;
-                OnPropertyChanged(nomePropriedade);
-            }
-        }
-        protected void OnPropertyChanged(string nomePropriedade)
+        public void OnPropertyChanged([CallerMemberName] string nomePropriedade = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomePropriedade));
         }

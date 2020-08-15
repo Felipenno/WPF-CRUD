@@ -1,8 +1,5 @@
 ﻿using Dominio;
-using System;
 using System.Linq;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,31 +15,31 @@ namespace Repositorio
             _context = context;
         }
 
-        public async void Add(Produto produto)
+        public void Add(Produto produto)
         {
-           await  _context.Produtos.AddAsync(produto);
-        }
+            _context.Produtos.Add(produto);
 
+        }
         public void Delete(Produto produto)
         {
             _context.Produtos.Remove(produto);
         }
 
-        public void Update(Produto entity)
+        public void Update(Produto produto)
         {
-            throw new NotImplementedException();
+             _context.Produtos.Update(produto);
         }
-        public Task<bool> SaveChangesAsync(Produto produto)
+        public async void SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<Produto[]> GetAll()
+        public async Task<Produto[]> GetAllAsync()
         {
             return await _context.Produtos.ToArrayAsync();
         }
 
-        public async Task<Produto> GetById(int ProdutoId)
+        public async Task<Produto> GetByIdAsync(int ProdutoId)
         {
             return await _context.Produtos.Where(P => P.Id == ProdutoId).FirstOrDefaultAsync();
         }

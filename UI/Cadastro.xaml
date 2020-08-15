@@ -14,19 +14,19 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="Cadastro" Height="550" Width="300" ResizeMode="NoResize">
+        Title="Cadastro" Height="550" Width="410" ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="20" FontWeight="Bold" FontSize="22" Text="CADASTRAR USUÁRIO" VerticalAlignment="Top"/>
         <Label Content="Nome" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,99,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="234"/>
+        <TextBox Name="boxNome" HorizontalAlignment="Left" Height="23" Margin="30,99,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="350"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="30,139,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="30,170,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="234"/>
+        <TextBox Name="boxEmail" HorizontalAlignment="Left" Height="23" Margin="30,170,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="350"/>
         <Label Content="Senha" HorizontalAlignment="Left" Margin="30,207,0,0" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Left" Height="23" Margin="30,238,0,0"  VerticalAlignment="Top" Width="234"/>
+        <PasswordBox Name="boxPass" HorizontalAlignment="Left" Height="23" Margin="30,238,0,0"  VerticalAlignment="Top" Width="350"/>
         <Label Content="Repetir Senha" HorizontalAlignment="Left" Margin="30,276,0,0" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Left" Height="23" Margin="30,302,0,0"  VerticalAlignment="Top" Width="234"/>
-        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="30,363,0,0" VerticalAlignment="Top" Width="234" Height="30"/>
-        <Button Content="Voltar para o Inicio" HorizontalAlignment="Left" Margin="30,442,0,0" VerticalAlignment="Top" Width="234" Height="30"/>
+        <PasswordBox Name="boxReptPass" HorizontalAlignment="Left" Height="23" Margin="30,302,0,0"  VerticalAlignment="Top" Width="350"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="30,363,0,0" VerticalAlignment="Top" Width="350" Height="30" Click="btnCadastro" />
+        <Button Content="Voltar" IsCancel="True" HorizontalAlignment="Left" Margin="30,442,0,0" VerticalAlignment="Top" Width="350" Height="30"/>
 
     </Grid>
 </Window>

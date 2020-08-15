@@ -1,48 +1,54 @@
 ﻿using Dominio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    class UsuarioRepositorio : IRepositorio<Usuario>
+    public class UsuarioRepositorio : IRepositorio<Usuario>
     {
-        private readonly Context _context;
+        private Context _context = new Context();
 
-        public UsuarioRepositorio(Context context)
+        public void Add(Usuario usuario)
         {
-            _context = context;
+            _context.Usuarios.Add(usuario);
         }
 
-        public void Add(Usuario entity)
+        public void Delete(Usuario usuario)
         {
-            throw new NotImplementedException();
+            _context.Usuarios.Remove(usuario);
         }
 
-        public void Delete(Usuario entity)
+        public void Update(Usuario usuario)
         {
-            throw new NotImplementedException();
+            _context.Usuarios.Update(usuario);
         }
 
-        public Task<Usuario[]> GetAll()
+        public async void SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Usuario> GetById(int id)
+        public async Task<Usuario[]> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.ToArrayAsync();
         }
 
-        public Task<bool> SaveChangesAsync(Usuario entity)
+        public async Task<Usuario> GetByIdAsync(int usuarioId)
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.Where(U => U.Id == usuarioId).FirstOrDefaultAsync();
         }
 
-        public void Update(Usuario entity)
+        public async Task<Usuario> Entrar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            Usuario user = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == usuario.Email && u.Senha == usuario.Senha);
+
+            return user;
         }
+
+
     }
 }

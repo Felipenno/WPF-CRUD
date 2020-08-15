@@ -1,49 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Dominio
 {
-    public class Usuario : BaseNotifyPropertyChanged
+    public class Usuario
     {
         public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
 
-        private string _nome;
-        public string Nome
+        public Usuario()
         {
-            get { return _nome; }
-            set { SetField(ref _nome, value); }
         }
 
-        private string _email;
-        public string Email
+        public Usuario(string email, string senha)
         {
-            get { return _email; }
-            set { SetField(ref _email, value); }
+            Email = email;
+            Senha = senha;
         }
 
-        private string _senha;
-        public string Senha
+        public Usuario(string nome, string email, string senha) : this(email, senha)
         {
-            get { return _senha; }
-            set { SetField(ref _senha, value); }
+            Nome = nome;
         }
-
-        public static string Codificar(string texto)
-        {
-            var md5 = MD5.Create();
-            byte[] bytes = Encoding.ASCII.GetBytes(texto);
-            byte[] hash = md5.ComputeHash(bytes);
-
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));
-            }
-
-            return sb.ToString();
-        }
-
     }
 }

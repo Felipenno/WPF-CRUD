@@ -15,7 +15,7 @@ namespace Repositorio
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=mercado;User Id=sa;Password=12345;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-26V3256\SQLEXPRESS;Database=mercado;User Id=sa;Password=12345;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
