@@ -12,6 +12,6 @@ namespace Repositorio
         void Delete(T entity);
         Task<T[]> GetAllAsync();
         Task<T> GetByIdAsync(int id);
-        void SaveChangesAsync();
+        Task<bool> SaveChangesAsync();
     }
 }

@@ -40,7 +40,7 @@
         <Label Content="Grupo" FontSize="14" HorizontalAlignment="Left" Margin="31,7,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <Label Content="Unidade de Medida" FontSize="14" HorizontalAlignment="Left" Margin="31,8,0,0" VerticalAlignment="Top" Grid.Row="2"/>
         <Button Content="Confirmar" FontSize="14" HorizontalAlignment="Left" Margin="249,20.5,0,0" VerticalAlignment="Top" Width="170" Height="40" Grid.Column="1" Grid.Row="3"/>
-        <Button Content="Cancelar" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" Margin="33,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="170" Height="40"/>
+        <Button Content="Cancelar" IsCancel="True" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" Margin="33,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="170" Height="40"/>
 
     </Grid>
 </Window>

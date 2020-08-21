@@ -10,24 +10,26 @@ namespace UI.Model
     {
         private UsuarioRepositorio _usuarioRepositorio = new UsuarioRepositorio();
        
-        public void CriarUsuario(string nome, string email, string senha)
+        public async Task<bool> CriarUsuario(string nome, string email, string senha)
         {
             Usuario novoUsuario = new Usuario(nome, email, Codificar(senha));
-            _usuarioRepositorio.Add(novoUsuario);
-            _usuarioRepositorio.SaveChangesAsync();
+            return await _usuarioRepositorio.AddIfEmailNotExist(novoUsuario);
         }
 
-        public async Task<bool> Entrar(string email, string senha)
+        public async Task<string> Entrar(string email, string senha)
         {
             Usuario login = new Usuario(email, Codificar(senha));
-            Usuario usuario = await _usuarioRepositorio.Entrar(login);
-
-            if(usuario == null)
+            Usuario usuario = await _usuarioRepositorio.GetByEmailSenhaAsync(login);
+            
+            if(usuario != null)
             {
-                return false;
+                return usuario.Nome;
+            }
+            else
+            {
+                return "";
             }
 
-            return true;
         }
 
         public static string Codificar(string texto)

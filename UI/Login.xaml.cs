@@ -23,6 +23,7 @@ namespace UI
     /// </summary>
     public partial class Login : Window
     {
+        public string UsuarioAtual { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -30,18 +31,21 @@ namespace UI
 
         private async void btnEntrar(object sender, RoutedEventArgs e)
         {
+            IsEnabled = false;
             UsuarioModel uModel = new UsuarioModel();
-            bool usuarioAutenticado = await uModel.Entrar(emailBox.Text, passBox.Password);
+            string usuarioAutenticado = await uModel.Entrar(emailBox.Text, passBox.Password);
 
-            if(usuarioAutenticado == true)
+            if(usuarioAutenticado != string.Empty)
             {
+                UsuarioAtual = usuarioAutenticado;
                 Principal principalWindow = new Principal();
                 principalWindow.Show();
                 Close();
             }
             else
-            {
+            {   
                 MessageBox.Show("Email ou Senha inválido");
+                IsEnabled = true;
             }
         }
 

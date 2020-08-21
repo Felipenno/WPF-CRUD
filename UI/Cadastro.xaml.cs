@@ -23,26 +23,31 @@ namespace UI
             InitializeComponent();
         }
 
-        private void btnCadastro(object sender, RoutedEventArgs e)
+        private async void btnCadastro(object sender, RoutedEventArgs e)
         {
+            IsEnabled = false;
             UsuarioModel uModel = new UsuarioModel();
 
-            try
+            if (boxPass.Password == boxReptPass.Password && boxEmail.Text != string.Empty && boxNome.Text != string.Empty && boxPass.Password != string.Empty)
             {
-                if(boxPass.Password == boxReptPass.Password && boxEmail.Text != string.Empty && boxNome.Text != string.Empty && boxPass.Password != string.Empty)
+                bool emailValido = await uModel.CriarUsuario(boxNome.Text, boxEmail.Text, boxPass.Password);
+
+                if(emailValido)
                 {
-                    uModel.CriarUsuario(boxNome.Text, boxEmail.Text, boxPass.Password);
+                    MessageBox.Show("Cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("As senhas são diferentes ou existem campos vazios");
+                    MessageBox.Show("Email já cadastrado!", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
             }
-            catch(Exception erro)
+            else
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("As senhas são diferentes ou existem campos vazios", "Erro", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            IsEnabled = true;
+
         }
     }
 }

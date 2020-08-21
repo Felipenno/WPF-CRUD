@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UI.Model
 {
-    class VendaModel
+    public class VendaModel
     {
     }
 }

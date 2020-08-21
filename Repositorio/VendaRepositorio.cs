@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    class VendaRepositorio : IRepositorio<Venda>
+    public class VendaRepositorio : IRepositorio<Venda>
     {
-        private readonly Context _context;
-
-        public VendaRepositorio(Context context)
-        {
-            _context = context;
-        }
+        private readonly Context _context = new Context();
 
         public void Add(Venda venda)
         {
@@ -30,9 +25,9 @@ namespace Repositorio
         {
             _context.Vendas.Update(venda);
         }
-        public async void SaveChangesAsync()
+        public async Task<bool> SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         public async Task<Venda[]> GetAllAsync()

@@ -37,7 +37,7 @@
         <TextBlock  Margin="121,5,332,10" TextWrapping="NoWrap" Text="Não Informado"   Padding="4" Grid.ColumnSpan="2"/>
         <Label Content="CPF: "  Margin="255.438,5,258,5" Grid.Column="1" />
         <TextBlock  Margin="306.438,5,30,5" TextWrapping="NoWrap" Text="Não Informado" Padding="4" Grid.Column="1"/>
-        <Button Content="Cancelar"  Margin="100,15,500,15" Grid.Row="4"  FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button Content="Cancelar" IsCancel="True"  Margin="100,15,500,15" Grid.Row="4"  FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <DataGrid  Grid.Row="3" Grid.ColumnSpan="2" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="#" Width="*"/>

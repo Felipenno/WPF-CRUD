@@ -21,5 +21,12 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void BtnContinuarVenda(object sender, RoutedEventArgs e)
+        {
+            NovaVenda novaVenda = new NovaVenda();
+            novaVenda.ShowDialog();
+            Close();
+        }
     }
 }

@@ -5,15 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositorio
 {
-    class ProdutoRepositorio : IRepositorio<Produto>
+    public class ProdutoRepositorio : IRepositorio<Produto>
     {
 
-        private readonly Context _context;
-
-        public ProdutoRepositorio(Context context)
-        {
-            _context = context;
-        }
+        private readonly Context _context = new Context();
 
         public void Add(Produto produto)
         {
@@ -29,9 +24,9 @@ namespace Repositorio
         {
              _context.Produtos.Update(produto);
         }
-        public async void SaveChangesAsync()
+        public async Task<bool> SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         public async Task<Produto[]> GetAllAsync()
