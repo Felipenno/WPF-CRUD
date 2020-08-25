@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -34,7 +35,18 @@ namespace UI
 
         private void btnEditarProduto(object sender, RoutedEventArgs e)
         {
+           Produto produto = (Produto)gridProdutos.SelectedItem;
 
+            if(produto != null)
+            {
+                NovoProduto novoProduto = new NovoProduto(produto);
+
+                novoProduto.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um item");
+            }
         }
 
         private async void BtnConsultarProduto(object sender, RoutedEventArgs e)

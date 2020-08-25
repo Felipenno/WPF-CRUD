@@ -32,5 +32,10 @@ namespace Dominio
             Ativo = ativo;
             ProdutoGrupo = produtoGrupo;
         }
+
+        public Produto(int id, string descricao, UnidadeMedida unidadeDeMedida, string codBarras, decimal precoCusto, decimal precoVenda, DateTime dataHoraCadastro, bool ativo, ProdutoGrupo produtoGrupo) : this(descricao, unidadeDeMedida, codBarras, precoCusto, precoVenda, dataHoraCadastro, ativo, produtoGrupo)
+        {
+            Id = id;
+        }
     }
 }

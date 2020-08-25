@@ -33,5 +33,22 @@ namespace UI.Model
             _produtoRepositorio.Add(produto);
             await _produtoRepositorio.SaveChangesAsync();
         }
+
+        public async void EditarProduto(
+            int Id,
+            string descricao,
+            UnidadeMedida unidadeDeMedida,
+            string codBarras,
+            decimal precoCusto,
+            decimal precoVenda,
+            bool ativo,
+            ProdutoGrupo produtoGrupo
+            )
+        {
+            Produto atualizarProduto = new Produto(Id, descricao, unidadeDeMedida, codBarras, precoCusto, precoVenda, DateTime.Now, ativo, produtoGrupo);
+
+            _produtoRepositorio.Update(atualizarProduto);
+            await _produtoRepositorio.SaveChangesAsync();
+        }
     }
 }

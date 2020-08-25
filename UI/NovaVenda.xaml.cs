@@ -75,6 +75,21 @@ namespace UI
             if(status == true)
             {
                 MessageBox.Show("Venda cadastrada com sucesso!");
+                Close();
+
+                MessageBoxResult result = MessageBox.Show("Deseja incluir nome e cpf do cliente?", "Nome e CPF do Cliente", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        NomeCpf nomeCpf = new NomeCpf();
+                        nomeCpf.ShowDialog();
+                        break;
+
+                    case MessageBoxResult.No:
+                        NovaVenda novaVenda = new NovaVenda("Não informado", "Não informado");
+                        novaVenda.ShowDialog();
+                        break;
+                }
             }
             else
             {

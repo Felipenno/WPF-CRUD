@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d" 
         
-        Title="NovoProduto" Height="350" Width="674.688" ResizeMode="NoResize">
+        Height="350" Width="674.688" ResizeMode="NoResize">
     <Grid  >
         <Grid.RowDefinitions>
             <RowDefinition Height="85*"/>
