@@ -23,7 +23,6 @@ namespace UI
     /// </summary>
     public partial class Login : Window
     {
-        public string UsuarioAtual { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -36,9 +35,8 @@ namespace UI
             string usuarioAutenticado = await uModel.Entrar(emailBox.Text, passBox.Password);
 
             if(usuarioAutenticado != string.Empty)
-            {
-                UsuarioAtual = usuarioAutenticado;
-                Principal principalWindow = new Principal();
+            {  
+                Principal principalWindow = new Principal(usuarioAutenticado);
                 principalWindow.Show();
                 Close();
             }

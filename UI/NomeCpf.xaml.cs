@@ -24,7 +24,9 @@ namespace UI
 
         private void BtnContinuarVenda(object sender, RoutedEventArgs e)
         {
-            NovaVenda novaVenda = new NovaVenda();
+
+
+            NovaVenda novaVenda = new NovaVenda(boxNomeCliente.Text, boxCpfCliente.Text);
             novaVenda.ShowDialog();
             Close();
         }

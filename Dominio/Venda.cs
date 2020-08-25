@@ -14,5 +14,19 @@ namespace Dominio
         public DateTime DataHora { get; set; }
 
         public List<VendaProduto> VendaProdutos { get; set; }
+
+        public Venda()
+        {
+
+        }
+
+        public Venda(string clienteDocumento, string clienteNome, decimal total, string obs, DateTime dataHora)
+        {
+            ClienteDocumento = clienteDocumento;
+            ClienteNome = clienteNome;
+            Total = total;
+            Obs = obs;
+            DataHora = dataHora;
+        }
     }
 }

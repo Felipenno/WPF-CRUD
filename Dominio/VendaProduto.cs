@@ -13,5 +13,10 @@ namespace Dominio
         public Venda Venda { get; set; }
         public int ProdutoId { get; set; }
         public Produto Produto { get; set; }
+
+        public VendaProduto()
+        {
+
+        }
     }
 }

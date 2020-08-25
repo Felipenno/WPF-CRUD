@@ -5,16 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="Principal" MinHeight="600" MinWidth="800">
+        Title="Principal" MinHeight="600" MinWidth="800" Height="923" Width="1585">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24*"/>
@@ -32,6 +24,7 @@
                         <RowDefinition Height="229*"/>
                     </Grid.RowDefinitions>
                     <Button Content="Cadastrar Produto" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="170" Click="BtnCadastroProduto"/>
+                    <Button Content="Editar Produto" HorizontalAlignment="Left"  Margin="1037,4,0,4" Width="170" Click="btnEditarProduto"/>
                     <Button Content="Consultar Produtos" HorizontalAlignment="Left" Margin="20,4,20,4" Width="170" Click="BtnConsultarProduto"/>
                     <DataGrid Name="gridProdutos" Grid.Row="2" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto"  >
                         <DataGrid.Columns>
@@ -51,15 +44,15 @@
                         <RowDefinition Height="20*"/>
                         <RowDefinition Height="229*"/>
                     </Grid.RowDefinitions>
-                    <Button Content="Nova Venda" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="120" Click="BtnNomeCpfDialog"/>
+                    <Button Content="Nova Venda" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="120" Click="BtnNovaVendaDialog"/>
                     <Button Content="Consutar Vendas" HorizontalAlignment="Left" Margin="20,4,20,4" Click="BtnConsultarVenda"/>
-                    <DataGrid Name="gridVendas" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid Name="gridVendas" Grid.Row="2" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Código" Width="*"/>
-                            <DataGridTextColumn Header="Cliente" Width="*"/>
-                            <DataGridTextColumn Header="CPF" Width="*"/>
-                            <DataGridTextColumn Header="Total" Width="*"/>
-                            <DataGridTextColumn Header="Data e Hora" Width="*"/>
+                            <DataGridTextColumn Header="Código" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Cliente" Binding="{Binding ClienteNome}" Width="*"/>
+                            <DataGridTextColumn Header="CPF" Binding="{Binding ClienteDocumento}" Width="*"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*"/>
+                            <DataGridTextColumn Header="Data e Hora" Binding="{Binding DataHora, StringFormat=dd/MM/yyyy HH:mm:ss}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

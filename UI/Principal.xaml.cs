@@ -15,15 +15,14 @@ namespace UI
 {
     public partial class Principal : Window
     {
-        private readonly ProdutoModel _pModel = new ProdutoModel();
-        private readonly VendaModel _vModel = new VendaModel();
-        public Principal()
+
+
+        public Principal(string usuarioAtual)
         {
-            Login login = (Login)Application.Current.MainWindow;
 
             InitializeComponent();
-            
-            BoxUsuarioAtual.Text = login.UsuarioAtual;
+
+            BoxUsuarioAtual.Text = usuarioAtual;
         }
 
         private void BtnCadastroProduto(object sender, RoutedEventArgs e)
@@ -33,20 +32,40 @@ namespace UI
             novoProduto.ShowDialog();
         }
 
+        private void btnEditarProduto(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private async void BtnConsultarProduto(object sender, RoutedEventArgs e)
         {
+            ProdutoModel _pModel = new ProdutoModel();
             gridProdutos.ItemsSource = await _pModel.ListarProdutos();
         }
 
-       private void BtnNomeCpfDialog(object sender, RoutedEventArgs e)
+        private void BtnNovaVendaDialog(object sender, RoutedEventArgs e)
         {
-            NomeCpf nomeCpf = new NomeCpf();
-            nomeCpf.ShowDialog();
+            MessageBoxResult result = MessageBox.Show("Deseja incluir nome e cpf do cliente?", "Nome e CPF do Cliente", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    NomeCpf nomeCpf = new NomeCpf();
+                    nomeCpf.ShowDialog();
+                    break;
+
+                case MessageBoxResult.No:
+                    NovaVenda novaVenda = new NovaVenda("Não informado", "Não informado");
+                    novaVenda.ShowDialog();
+                    break;
+            }
+
         }
 
-        private void BtnConsultarVenda(object sender, RoutedEventArgs e)
+        private async void BtnConsultarVenda(object sender, RoutedEventArgs e)
         {
-           
+            VendaModel _vModel = new VendaModel();
+
+            gridVendas.ItemsSource = await _vModel.ListarVendas();
         }
 
         private void BtnFecharSistema(object sender, RoutedEventArgs e)

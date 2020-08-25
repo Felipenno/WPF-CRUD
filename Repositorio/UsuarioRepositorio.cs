@@ -21,7 +21,6 @@ namespace Repositorio
         public void Delete(Usuario usuario)
         {
             _context.Usuarios.Remove(usuario);
-
         }
 
         public void Update(Usuario usuario)

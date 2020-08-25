@@ -17,9 +17,20 @@ namespace Dominio
         public bool Ativo { get; set; }
         public ProdutoGrupo ProdutoGrupo { get; set; }
         
-
         public List<VendaProduto> VendaProdutos { get; set; }
 
+        public Produto() { }
 
+        public Produto(string descricao, UnidadeMedida unidadeDeMedida, string codBarras, decimal precoCusto, decimal precoVenda, DateTime dataHoraCadastro, bool ativo, ProdutoGrupo produtoGrupo)
+        {
+            Descricao = descricao;
+            UnidadeDeMedida = unidadeDeMedida;
+            CodBarras = codBarras;
+            PrecoCusto = precoCusto;
+            PrecoVenda = precoVenda;
+            DataHoraCadastro = dataHoraCadastro;
+            Ativo = ativo;
+            ProdutoGrupo = produtoGrupo;
+        }
     }
 }
