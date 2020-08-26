@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d" 
         
-        Height="350" Width="674.688" ResizeMode="NoResize">
+        Height="350" Width="675" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid  >
         <Grid.RowDefinitions>
             <RowDefinition Height="85*"/>
@@ -15,24 +15,24 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="70*"/>
             <ColumnDefinition Width="140*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox Name="boxAtivo" Content="Produto Ativo" FontSize="14" HorizontalAlignment="Left" Margin="31,53,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="boxGrupo" HorizontalAlignment="Left" FontSize="14" Margin="31,38,0,0" VerticalAlignment="Top" Width="156" Grid.Row="1"/>
-        <Label Content="Descrição" FontSize="14"  HorizontalAlignment="Left" Margin="23,27,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox Name="boxDescricao" HorizontalAlignment="Left" FontSize="14" Height="23" Margin="23,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396" Grid.Column="1"/>
-        <Label Content="Código de Barras" FontSize="14" HorizontalAlignment="Left" Margin="23,15,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
-        <TextBox Name="boxCodBarras" HorizontalAlignment="Left" FontSize="14" Height="23" Margin="23,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397" Grid.Column="1" Grid.Row="1"/>
+        <CheckBox Name="boxAtivo" Content="Produto Ativo" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="31,53,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="boxGrupo" HorizontalAlignment="Left" FontSize="16" Margin="31,38,0,0" VerticalAlignment="Top" Width="156" Grid.Row="1"/>
+        <Label Content="Descrição"  HorizontalAlignment="Left" Margin="23,20,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox Name="boxDescricao" MaxLength="30" HorizontalAlignment="Left"  Margin="23,50,0,2" TextWrapping="NoWrap" VerticalAlignment="Top" Width="396" Grid.Column="1"/>
+        <Label Content="Código de Barras" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Name="boxCodBarras" MaxLength="30" HorizontalAlignment="Left" Margin="23,40,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="397" Grid.Column="1" Grid.Row="1"/>
         <Label Content="Preço de Custo" HorizontalAlignment="Left" Margin="23,8,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
-        <TextBox Name="boxPrecoCusto" HorizontalAlignment="Left" FontSize="14" Height="23" Margin="23,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Name="boxPrecoCusto" MaxLength="30" HorizontalAlignment="Left"  Margin="23,40,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="2"/>
         <Label Content="Preço de Venda" FontSize="14" HorizontalAlignment="Left" Margin="249,8,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
-        <TextBox Name="boxPrecoVenda" HorizontalAlignment="Left" FontSize="14" Height="23" Margin="249,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="2"/>
-        <ComboBox Name="boxUnMedida" HorizontalAlignment="Left" FontSize="14" Margin="31,34,0,0" VerticalAlignment="Top" Width="156" Grid.Row="2"/>
+        <TextBox Name="boxPrecoVenda" MaxLength="30" HorizontalAlignment="Left" Margin="249,40,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="2"/>
+        <ComboBox Name="boxUnMedida" HorizontalAlignment="Left" FontSize="16" Margin="31,40,0,0" VerticalAlignment="Top" Width="156" Grid.Row="2"/>
         <Label Content="Grupo" FontSize="14" HorizontalAlignment="Left" Margin="31,7,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <Label Content="Unidade de Medida" FontSize="14" HorizontalAlignment="Left" Margin="31,8,0,0" VerticalAlignment="Top" Grid.Row="2"/>
-        <Button Content="Confirmar" FontSize="14" HorizontalAlignment="Left" Margin="249,20.5,0,0" VerticalAlignment="Top" Width="170" Height="40" Grid.Column="1" Grid.Row="3" Click="btnConfirmarProduto"/>
-        <Button Content="Cancelar" IsCancel="True" FontSize="14" Grid.Column="1" HorizontalAlignment="Left" Margin="33,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="170" Height="40"/>
+        <Label Content="Unidade de Medida" HorizontalAlignment="Left" Margin="31,8,0,0" VerticalAlignment="Top" Grid.Row="2"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="249,20.5,0,0" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.Row="3" Click="btnConfirmarProduto"/>
+        <Button Content="Cancelar" IsCancel="True"  Grid.Column="1" HorizontalAlignment="Left" Margin="33,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="170"/>
 
     </Grid>
 </Window>

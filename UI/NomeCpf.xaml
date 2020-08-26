@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         
-        Title="NomeCpf" Height="270" Width="450" ResizeMode="NoResize">
+        Height="270" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid >
         <TextBlock HorizontalAlignment="Center" Padding="5" FontSize="14" FontWeight="Bold" Height="34" Margin="79,22,89,0" TextWrapping="NoWrap" Text="INSIRA O NOME E O CPF DO CLIENTE" VerticalAlignment="Top" Width="274"/>
-        <Label Content="Nome" FontSize="14" HorizontalAlignment="Left" Margin="26,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.527,0.716"/>
-        <TextBox Name="boxNomeCliente" HorizontalAlignment="Left" FontSize="14" Height="29" Margin="79,61,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="274"/>
-        <Label Content="CPF" FontSize="14" HorizontalAlignment="Left" Margin="26,115,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="boxCpfCliente" MaxLength="11" HorizontalAlignment="Left" FontSize="14" Height="29" Margin="79,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
+        <Label Content="NOME: " HorizontalAlignment="Left" Margin="30,61,0,0" VerticalAlignment="Top" />
+        <TextBox Name="boxNomeCliente" MaxLength="30"  Margin="110,61,40,10" TextWrapping="NoWrap"  VerticalAlignment="Top"/>
+        <Label Content="CPF: " HorizontalAlignment="Left" Margin="26,115,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="boxCpfCliente" MaxLength="11"  Margin="110,115,40,0" TextWrapping="NoWrap" VerticalAlignment="Top"/>
         <Button Content="Continuar Venda" FontSize="14" HorizontalAlignment="Center" Margin="125,175,124,0" VerticalAlignment="Top" Width="193" Height="37" Click="BtnContinuarVenda"/>
 
     </Grid>

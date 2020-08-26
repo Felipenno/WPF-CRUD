@@ -4,6 +4,34 @@
              xmlns:local="clr-namespace:UI"
              StartupUri="Login.xaml">
     <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="#f1f4fc" />
+            <Setter Property="Background" Value="RoyalBlue" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Padding" Value="6" />
+        </Style>
         
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#ffffff" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Medium" />
+            
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
     </Application.Resources>
 </Application>

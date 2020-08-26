@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         
-        Title="NovaVenda" Height="600" Width="800">
+       MinHeight="720" MinWidth="1024" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
@@ -19,28 +19,28 @@
             <RowDefinition Height="331*"/>
             <RowDefinition Height="63*"/>
         </Grid.RowDefinitions>
-        <Label Content="Digite o Código do Produto"  Margin="30,10,30,40"  Grid.Row="1"/>
-        <TextBox Name="boxCodProduto" KeyUp="boxCodProduto_KeyUp" Height="23" Margin="30,30,30,20" TextWrapping="NoWrap" Grid.Row="1"/>
-        <TextBlock Name="blockNomeProduto" Margin="20,20,100,20" Padding="10" TextWrapping="NoWrap" Text="PRODUTO PESQUISADO"  Grid.Row="1" Grid.Column="1"/>
-        <Label Content="Quantidade (Enter)"  Margin="30,10,30,40"  Grid.Row="2" Grid.RowSpan="1"/>
-        <TextBox Name="boxQuantidade" KeyUp="boxQuantidade_KeyUp"  Margin="30,30,30,20" TextWrapping="Wrap"  Grid.Row="2"/>
-        <Label Content="Nome do Cliente: "  Margin="10,5,111.562,5" />
-        <TextBlock Name="blockNomeCliente" Margin="121,5,332,10" TextWrapping="NoWrap" Text="Não Informado"   Padding="4" Grid.ColumnSpan="2"/>
-        <Label Content="CPF: "  Margin="255.438,5,258,5" Grid.Column="1" />
-        <TextBlock Name="blockCpfCliente" Margin="306.438,5,30,5" TextWrapping="NoWrap" Text="Não Informado" Padding="4" Grid.Column="1"/>
-        <Button Content="Confirmar Venda" FontSize="16" FontWeight="Bold"  Grid.Row="4"  Margin="330,15,40,15" Grid.Column="1" Click="btnConfirmarVenda"/>
-        <Button Content="Cancelar" IsCancel="True"  Margin="40,15,600,15" Grid.Row="4"  FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="Digite o Código do Produto"  Margin="30,10,0,40"  Grid.Row="1"/>
+        <TextBox Name="boxCodProduto" KeyUp="boxCodProduto_KeyUp"  Margin="30,45,40,10" TextWrapping="NoWrap" Grid.Row="1"/>
+        <TextBlock Name="blockNomeProduto" Margin="20,40,100,20" TextAlignment="Center" Padding="5" TextWrapping="NoWrap" Text="PRODUTO PESQUISADO"  Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Quantidade (Enter)"  Margin="30,10,0,40"  Grid.Row="2" Grid.RowSpan="1"/>
+        <TextBox Name="boxQuantidade" KeyUp="boxQuantidade_KeyUp"  Margin="30,44,40,10" TextWrapping="NoWrap"  Grid.Row="2"/>
+        <Label Content="Nome do Cliente: "  Margin="30,5,90,5" />
+        <TextBlock Name="blockNomeCliente" Margin="205,5,490,5" TextWrapping="NoWrap" Text="Não Informado" Padding="2" Grid.ColumnSpan="2"/>
+        <Label Content="CPF: " Margin="245,5,430,5" Grid.Column="1" />
+        <TextBlock Name="blockCpfCliente" Margin="306,5,30,5" TextWrapping="NoWrap" Text="Não Informado" Padding="4" Grid.Column="1"/>
+        <Button Content="Confirmar Venda" HorizontalAlignment="Right" Width="250" Grid.Row="4" Margin="400,15,40,15" Grid.Column="2" Click="btnConfirmarVenda"/>
+        <Button Content="Cancelar" IsCancel="True" Width="250"  Margin="40,15,10,15" Grid.Row="4" Grid.ColumnSpan="1"/>
         <Label Content="Observação (Opcional)"  Margin="20,10,380,40"  Grid.Row="2" Grid.RowSpan="1" Grid.Column="1"/>
-        <TextBox Name="boxObs"  Margin="20,30,30,20" TextWrapping="Wrap"  Grid.Row="2" Grid.Column="1" />
-        <Label Content="Total: " FontSize="16" FontWeight="Medium" Grid.Column="2"  Margin="105,15,413,15" Grid.Row="4" />
-        <TextBlock Name="blockTotal" FontSize="16" FontWeight="Medium" Grid.Column="1" Text="0"  Margin="162,15,258,15" Grid.Row="4" TextWrapping="Wrap" />
+        <TextBox Name="boxObs" Margin="20,44,30,10" TextWrapping="NoWrap"  Grid.Row="2" Grid.Column="1" />
+        <Label Content="Total: " HorizontalAlignment="Right" Width="80" Grid.Column="1" Margin="0,22,465,17" Grid.Row="4" />
+        <TextBlock Name="blockTotal" HorizontalAlignment="Right" Width="150" MaxWidth="150" Grid.Column="2" Text="0" TextAlignment="Center" Margin="250,25,310,20" Grid.Row="4" TextWrapping="NoWrap" />
         <DataGrid Name="gridVendaProduto" Grid.Row="3" Grid.ColumnSpan="2" AutoGenerateColumns="False" AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Width="*"/>
-                <DataGridTextColumn Header="Código Produto" Binding="{Binding ProdutoId}" Width="*"/>
+                <DataGridTextColumn Header="Código Produto" Binding="{Binding ProdutoId}" Width="1.3*"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding ProdutoNome}" Width="*"/>
-                <DataGridTextColumn Header="Unidade de Medida" Binding="{Binding UnidadeDeMedida}" Width="1.10*"/>
-                <DataGridTextColumn Header="Preço de Venda" Binding="{Binding PrecoVenda}" Width="*"/>
+                <DataGridTextColumn Header="Unidade de Medida" Binding="{Binding UnidadeDeMedida}" Width="1.5*"/>
+                <DataGridTextColumn Header="Preço de Venda" Binding="{Binding PrecoVenda}" Width="1.2*"/>
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding QuantidadeProduto}" Width="*"/>
                 <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*"/>
             </DataGrid.Columns>

@@ -6,46 +6,47 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         
-        Title="Principal" MinHeight="600" MinWidth="800" Height="923" Width="1585">
+        MinHeight="720" MinWidth="1024" Height="720" Width="1024" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="24*"/>
-            <RowDefinition Height="41*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="35*"/>
             <RowDefinition Height="504*"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="BoxUsuarioAtual" Margin="130,0,0,0" Width="300" Padding="5" HorizontalAlignment="Left" Grid.RowSpan="1" TextWrapping="NoWrap" Text="NOME USUARIO CONECTADO"/>
-        <Button Content="Fechar Sistema" HorizontalAlignment="Right" Margin="0,0,30,0" Width="110" Height="20" Padding="0" Click="BtnFecharSistema" />
-        <TextBlock HorizontalAlignment="Center"  Grid.Row="1" TextWrapping="NoWrap" FontWeight="Bold" FontSize="22" Text="NOME PROGRAMA" />
-        <TabControl  TabStripPlacement="Left" Grid.Row="2" >
-            <TabItem Header="Produto" FontSize="20" FontWeight="Bold">
-                <Grid Background="#FFE5E5E5">
+        <Label Content="Usuario Atual: " HorizontalAlignment="Left" Margin="20,3,0,0" VerticalAlignment="Top" Grid.RowSpan="1"/>
+        <TextBlock Name="BoxUsuarioAtual" Margin="179,2,0,10" Width="300" Padding="5" HorizontalAlignment="Left" Grid.RowSpan="1" TextWrapping="NoWrap" Text="NOME USUARIO CONECTADO"/>
+        <Button Content="Fechar Sistema" FontSize="14" HorizontalAlignment="Right" Margin="0,8,30,8" Padding="4" Click="BtnFecharSistema" />
+        <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="1" TextWrapping="NoWrap" FontWeight="Bold" FontSize="22" Text="SISTEMA" Margin="0,5,0,5" />
+        <TabControl  TabStripPlacement="Left" Grid.Row="2" Background="#7186c7" >
+            <TabItem Header="Produto" Height="60" FontSize="20" FontWeight="Bold">
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="30*"/>
                         <RowDefinition Height="229*"/>
                     </Grid.RowDefinitions>
-                    <Button Content="Cadastrar Produto" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="170" Click="BtnCadastroProduto"/>
-                    <Button Content="Editar Produto" HorizontalAlignment="Left"  Margin="1037,4,0,4" Width="170" Click="btnEditarProduto"/>
-                    <Button Content="Consultar Produtos" HorizontalAlignment="Left" Margin="20,4,20,4" Width="170" Click="BtnConsultarProduto"/>
+                    <Button Content="Cadastrar Produto" HorizontalAlignment="Right"  Margin="20,10,30,10"  Click="BtnCadastroProduto"/>
+                    <Button Content="Editar Produto" HorizontalAlignment="Right"  Margin="10,10,250,10" Click="btnEditarProduto"/>
+                    <Button Content="Consultar Produtos" HorizontalAlignment="Left" Margin="30,10,20,10" Click="BtnConsultarProduto"/>
                     <DataGrid Name="gridProdutos" Grid.Row="2" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto"  >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Código" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}" Width="*"/>
-                            <DataGridTextColumn Header="Unidade de Medida" Binding="{Binding UnidadeDeMedida}" Width="*"/>
+                            <DataGridTextColumn Header="Unidade de Medida" Binding="{Binding UnidadeDeMedida}" Width="1.4*"/>
                             <DataGridTextColumn Header="Grupo" Binding="{Binding ProdutoGrupo}" Width="*"/>
-                            <DataGridTextColumn Header="Preço de Custo" Binding="{Binding PrecoCusto}" Width="*"/>
-                            <DataGridTextColumn Header="Preço de Venda" Binding="{Binding PrecoVenda}" Width="*"/>
+                            <DataGridTextColumn Header="Preço de Custo" Binding="{Binding PrecoCusto}" Width="1.1*"/>
+                            <DataGridTextColumn Header="Preço de Venda" Binding="{Binding PrecoVenda}" Width="1.1*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Venda" FontSize="20" FontWeight="Bold">
-                <Grid Background="#FFE5E5E5">
+            <TabItem Header="Venda" Height="60" FontSize="20" FontWeight="Bold">
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="30*"/>
                         <RowDefinition Height="229*"/>
                     </Grid.RowDefinitions>
-                    <Button Content="Nova Venda" HorizontalAlignment="Right"  Margin="20,4,20,4" Width="120" Click="BtnNovaVendaDialog"/>
-                    <Button Content="Consutar Vendas" HorizontalAlignment="Left" Margin="20,4,20,4" Click="BtnConsultarVenda"/>
+                    <Button Content="Nova Venda" HorizontalAlignment="Right"  Margin="20,10,20,10" Width="120" Click="BtnNovaVendaDialog"/>
+                    <Button Content="Consutar Vendas" HorizontalAlignment="Left" Margin="20,10,20,10" Click="BtnConsultarVenda"/>
                     <DataGrid Name="gridVendas" Grid.Row="2" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Código" Binding="{Binding Id}" Width="*"/>
@@ -58,6 +59,5 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Label Content="Usuario Atual: " HorizontalAlignment="Left" Margin="42,1,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
