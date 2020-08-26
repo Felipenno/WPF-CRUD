@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using UI.Model;
 
 namespace UI
 {
-    /// <summary>
-    /// Lógica interna para Cadastro.xaml
-    /// </summary>
     public partial class Cadastro : Window
     {
         public Cadastro()
@@ -32,7 +19,7 @@ namespace UI
             {
                 bool emailValido = await uModel.CriarUsuario(boxNome.Text, boxEmail.Text, boxPass.Password);
 
-                if(emailValido)
+                if (emailValido)
                 {
                     MessageBox.Show("Cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

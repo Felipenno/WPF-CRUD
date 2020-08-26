@@ -1,9 +1,6 @@
 ﻿using Dominio;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositorio
@@ -21,10 +18,12 @@ namespace Repositorio
         {
             _context.Vendas.Remove(venda);
         }
+
         public void Update(Venda venda)
         {
             _context.Vendas.Update(venda);
         }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
@@ -39,7 +38,5 @@ namespace Repositorio
         {
             return await _context.Vendas.Where(V => V.Id == vendaId).FirstOrDefaultAsync();
         }
-
-
     }
 }

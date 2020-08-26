@@ -9,7 +9,7 @@ namespace UI.Model
     public class UsuarioModel
     {
         private UsuarioRepositorio _usuarioRepositorio = new UsuarioRepositorio();
-       
+
         public async Task<bool> CriarUsuario(string nome, string email, string senha)
         {
             Usuario novoUsuario = new Usuario(nome, email, Codificar(senha));
@@ -20,8 +20,8 @@ namespace UI.Model
         {
             Usuario login = new Usuario(email, Codificar(senha));
             Usuario usuario = await _usuarioRepositorio.GetByEmailSenhaAsync(login);
-            
-            if(usuario != null)
+
+            if (usuario != null)
             {
                 return usuario.Nome;
             }

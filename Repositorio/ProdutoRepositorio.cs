@@ -7,13 +7,13 @@ namespace Repositorio
 {
     public class ProdutoRepositorio : IRepositorio<Produto>
     {
-
         private readonly Context _context = new Context();
 
         public void Add(Produto produto)
         {
             _context.Produtos.Add(produto);
         }
+
         public void Delete(Produto produto)
         {
             _context.Produtos.Remove(produto);
@@ -21,8 +21,9 @@ namespace Repositorio
 
         public void Update(Produto produto)
         {
-             _context.Produtos.Update(produto);
+            _context.Produtos.Update(produto);
         }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
@@ -37,7 +38,5 @@ namespace Repositorio
         {
             return await _context.Produtos.Where(P => P.Id == ProdutoId).FirstOrDefaultAsync();
         }
-
-
     }
 }

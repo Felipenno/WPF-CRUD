@@ -1,5 +1,4 @@
-﻿
-namespace Dominio.Enum
+﻿namespace Dominio.Enum
 {
     public enum UnidadeMedida
     {

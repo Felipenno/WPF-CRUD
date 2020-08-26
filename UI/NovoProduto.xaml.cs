@@ -1,24 +1,12 @@
 ﻿using Dominio;
 using Dominio.Enum;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UI.Model;
 
 namespace UI
 {
-    /// <summary>
-    /// Lógica interna para NovoProduto.xaml
-    /// </summary>
     public partial class NovoProduto : Window
     {
         ProdutoModel _pModel = new ProdutoModel();
@@ -30,13 +18,11 @@ namespace UI
 
             boxGrupo.ItemsSource = Enum.GetValues(typeof(ProdutoGrupo)).Cast<ProdutoGrupo>();
             boxUnMedida.ItemsSource = Enum.GetValues(typeof(UnidadeMedida)).Cast<UnidadeMedida>();
-            
         }
+
         public NovoProduto(Produto produto) : this()
         {
-
             _produto = produto;
-
 
             if (_produto != null)
             {
@@ -67,7 +53,6 @@ namespace UI
                     );
 
                 MessageBox.Show("Produto Adicionado com sucesso!");
-
             }
             else
             {

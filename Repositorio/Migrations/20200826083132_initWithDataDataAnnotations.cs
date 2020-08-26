@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repositorio.Migrations
 {
-    public partial class init : Migration
+    public partial class initWithDataDataAnnotations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,14 +13,14 @@ namespace Repositorio.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descricao = table.Column<string>(nullable: true),
-                    UnidadeDeMedida = table.Column<int>(nullable: false),
-                    CodBarras = table.Column<string>(nullable: true),
-                    PrecoCusto = table.Column<decimal>(nullable: false),
-                    PrecoVenda = table.Column<decimal>(nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    UnidadeDeMedida = table.Column<int>(type: "int", nullable: false),
+                    CodBarras = table.Column<string>(maxLength: 150, nullable: true),
+                    PrecoCusto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PrecoVenda = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DataHoraCadastro = table.Column<DateTime>(nullable: false),
                     Ativo = table.Column<bool>(nullable: false),
-                    ProdutoGrupo = table.Column<int>(nullable: false)
+                    ProdutoGrupo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,9 +33,9 @@ namespace Repositorio.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    Senha = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,10 +48,10 @@ namespace Repositorio.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteDocumento = table.Column<string>(nullable: true),
-                    ClienteNome = table.Column<string>(nullable: true),
-                    Obs = table.Column<string>(nullable: true),
-                    Total = table.Column<decimal>(nullable: false),
+                    ClienteDocumento = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    ClienteNome = table.Column<string>(type: "nvarchar(40)", nullable: true),
+                    Obs = table.Column<string>(maxLength: 150, nullable: true),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DataHora = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -66,8 +66,7 @@ namespace Repositorio.Migrations
                     VendaId = table.Column<int>(nullable: false),
                     ProdutoId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false),
-                    PrecoVenda = table.Column<decimal>(nullable: false),
-                    Quantidade = table.Column<decimal>(nullable: false)
+                    PrecoVenda = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -30,13 +30,15 @@ namespace Repositorio.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CodBarras")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<DateTime>("DataHoraCadastro")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<decimal>("PrecoCusto")
                         .HasColumnType("decimal(18,2)");
@@ -63,13 +65,16 @@ namespace Repositorio.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -84,16 +89,17 @@ namespace Repositorio.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClienteDocumento")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("ClienteNome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<DateTime>("DataHora")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Obs")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
@@ -115,9 +121,6 @@ namespace Repositorio.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("PrecoVenda")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Quantidade")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("VendaId", "ProdutoId");

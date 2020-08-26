@@ -1,25 +1,12 @@
 ﻿using Dominio;
 using Dominio.Enum;
-using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UI.Model;
 
 namespace UI
 {
-    /// <summary>
-    /// Lógica interna para NovaVenda.xaml
-    /// </summary>
     public partial class NovaVenda : Window
     {
         VendaModel vModel = new VendaModel();
@@ -35,10 +22,10 @@ namespace UI
 
         private async void boxCodProduto_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 var produto = await vModel.ProcurarProduto(int.Parse(boxCodProduto.Text));
-                if(produto != null)
+                if (produto != null)
                 {
                     blockNomeProduto.Text = produto.Descricao;
                 }
@@ -51,28 +38,26 @@ namespace UI
 
         private async void boxQuantidade_KeyUp(object sender, KeyEventArgs e)
         {
-            
-            if(e.Key == Key.Enter)
+
+            if (e.Key == Key.Enter)
             {
                 int codigoProduto = int.Parse(boxCodProduto.Text);
                 Produto produto = await vModel.ProcurarProduto(codigoProduto);
                 produtos.Add(produto);
 
                 NovaVendaCollection vendas = new NovaVendaCollection(produto.Id, produto.Descricao, produto.UnidadeDeMedida, produto.PrecoVenda, int.Parse(boxQuantidade.Text));
-                
+
                 gridVendaProduto.Items.Add(vendas);
 
                 blockTotal.Text = (decimal.Parse(blockTotal.Text) + vendas.Total).ToString();
             }
-
-            
         }
 
         private async void btnConfirmarVenda(object sender, RoutedEventArgs e)
         {
-           bool status = await vModel.NovaVenda(blockCpfCliente.Text, blockNomeCliente.Text, decimal.Parse(blockTotal.Text), boxObs.Text, produtos);
+            bool status = await vModel.NovaVenda(blockCpfCliente.Text, blockNomeCliente.Text, decimal.Parse(blockTotal.Text), boxObs.Text, produtos);
 
-            if(status == true)
+            if (status == true)
             {
                 MessageBox.Show("Venda cadastrada com sucesso!");
                 Close();

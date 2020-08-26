@@ -2,8 +2,6 @@
 using Dominio.Enum;
 using Repositorio;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UI.Model
@@ -34,7 +32,8 @@ namespace UI.Model
             await _produtoRepositorio.SaveChangesAsync();
         }
 
-        public async void EditarProduto(
+        public async void EditarProduto
+        (
             int Id,
             string descricao,
             UnidadeMedida unidadeDeMedida,
@@ -43,7 +42,7 @@ namespace UI.Model
             decimal precoVenda,
             bool ativo,
             ProdutoGrupo produtoGrupo
-            )
+        )
         {
             Produto atualizarProduto = new Produto(Id, descricao, unidadeDeMedida, codBarras, precoCusto, precoVenda, DateTime.Now, ativo, produtoGrupo);
 

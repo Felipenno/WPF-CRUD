@@ -1,22 +1,46 @@
 ﻿using Dominio.Enum;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
     public class Produto
     {
+        [Key]
         public int Id { get; set; }
+
+        [Column(TypeName = "nvarchar(40)")]
+        [Required]
         public string Descricao { get; set; }
+
+        [Column(TypeName = "int")]
+        [Required]
         public UnidadeMedida UnidadeDeMedida { get; set; }
+
+        [MaxLength(150)]
         public string CodBarras { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        [Required]
         public decimal PrecoCusto { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        [Required]
         public decimal PrecoVenda { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}")]
+        [Required]
         public DateTime DataHoraCadastro { get; set; }
+
+        [Required]
         public bool Ativo { get; set; }
+
+        [Column(TypeName = "int")]
+        [Required]
         public ProdutoGrupo ProdutoGrupo { get; set; }
-        
+
         public List<VendaProduto> VendaProdutos { get; set; }
 
         public Produto() { }

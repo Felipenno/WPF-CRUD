@@ -2,8 +2,6 @@
 using Repositorio;
 using System;
 using System.Collections.Generic;
-using System.IO.Packaging;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UI.Model

@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
     public class Usuario
     {
+        [Key]
         public int Id { get; set; }
+
+        [Column(TypeName = "nvarchar(40)")]
+        [Required]
         public string Nome { get; set; }
+
+        [Column(TypeName = "nvarchar(40)")]
+        [EmailAddress]
+        [Required]
         public string Email { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        [Required]
         public string Senha { get; set; }
 
         public Usuario()

@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Dominio;
 
 namespace Repositorio
@@ -21,8 +18,9 @@ namespace Repositorio
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<VendaProduto>(vendaProduto => { 
-                
+            modelBuilder.Entity<VendaProduto>(vendaProduto =>
+            {
+
                 vendaProduto.HasKey(vp => new { vp.VendaId, vp.ProdutoId });
 
                 vendaProduto.HasOne(vp => vp.Produto)
@@ -36,9 +34,6 @@ namespace Repositorio
                             .IsRequired();
             });
 
-            
-
-           
         }
     }
 }
